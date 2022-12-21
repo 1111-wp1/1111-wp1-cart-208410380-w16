@@ -22,11 +22,12 @@ const BlogContextProvider_80 = ({children}) => {
   }, [state.blogs]);
 
   const showAlert = (show = false, msg = "", type = "") => {
-    dispatch ({ type:'SHOW_ALERT' , payload: { show: true, msg, type }});
+    dispatch ({ type:'SHOW_ALERT' , payload: { show, msg, type }});
   };
 
   const removeItem = (id) => {
     dispatch({ type: 'REMOVE_ITEM' , payload: id});
+    dispatch ({ type:'SHOW_ALERT' , payload: { show: true, msg:'item removed', type:'danger' }});
   }
 
   return (
