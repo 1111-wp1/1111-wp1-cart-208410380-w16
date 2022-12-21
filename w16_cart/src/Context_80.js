@@ -31,9 +31,10 @@ const AppProvider_80 = ({children}) => {
     dispatch({ type: 'DECREASE', payload: id})
   }
 
-  const removeCart = (id) => {
-    dispatch({ type: 'REMOVE_CART', payload: id});
+  const remove = (id) => {
+    dispatch({ type: 'REMOVE', payload: id});
   }
+
   // 1221 fetch API //
   const fetchData = async () => {
     dispatch({ type: 'LOADING'});
@@ -47,7 +48,7 @@ const AppProvider_80 = ({children}) => {
     fetchData();
   }, []);
   //
-  return <AppContext_80.Provider value={{...state,clearCart,increase,decrease,removeCart}}>
+  return <AppContext_80.Provider value={{...state,clearCart,increase,decrease,remove}}>
       {children}
   </AppContext_80.Provider>
 };

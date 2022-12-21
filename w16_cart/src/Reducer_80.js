@@ -40,16 +40,18 @@ const Reducer_80 = (state, action) => {
         return { ...state, total, amount}
     }
 
-    if (action.type === 'REMOVE_CART') {
-        
-    }
-
     if (action.type === 'LOADING') {
         return { ...state, loading: true}
     }
 
     if (action.type === 'DISPLAY_ITEMS') {
         return {...state, cart: action.payload, loading: false}
+    }
+
+    if (action.type === 'REMOVE') {
+        const filteredCart = state.cart.filter((item) => 
+        item.id !== action.payload);
+        return { ...state, cart: filteredCart}
     }
 }
 
